@@ -10,6 +10,10 @@
 </head>
 
 <body>
+
+    <div class="content">
+    <h1>My Library</h1>
+
     <table class="books">
         <thead>
             <tr>
@@ -24,6 +28,43 @@
         <tbody>
         </tbody>
     </table>
+    
+    <div class="right">
+        <button id="addNewButton">Add New</button>
+    </div>  
+
+    </div>
+
+    <dialog id="addNew" class="addNew">
+        <h1>Add New Book</h1>
+        <form method="dialog" id="addNewForm" class="addNewForm">
+            <div class="formRow">
+                <label for="title">Title:</label>
+                <input id="title" name="title" type="text" required>
+            </div>
+
+            <div class="formRow">
+                <label for="author">Author:</label>
+                <input id="author" name="author" type="text" required>
+            </div>
+
+            <div class="formRow">
+                <label for="ages">Pages:</label>
+                <input id="pages" name="pages" type="number" min="1" required>
+            </div>
+
+            <div class="formRow">
+                <label for="read">Read:</label>
+                <input id="read" name="read" type="checkbox">
+            </div>
+
+            <div class="formRow">
+                <button id="cancel" type="reset">Cancel</button>
+                <button id="submit" type="submit">Confirm</button>
+            </div>
+
+        </form>
+    </dialog>
 
 </body>
 

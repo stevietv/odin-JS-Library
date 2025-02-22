@@ -26,11 +26,11 @@ Book.prototype.toggleRead = function() {
     displayAllBooks();
 }
 
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 266, false);
-addBookToLibrary("Tales of the City", "Armistead Maupin", 198, true);
+addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', 266, false);
+addBookToLibrary('Tales of the City', 'Armistead Maupin', 198, true);
 
 function displayAllBooks() {
-    const booksTable = document.querySelector(".books tbody");
+    const booksTable = document.querySelector('.books tbody');
 
     booksTable.replaceChildren();  // clears all existing rows
 
@@ -63,7 +63,7 @@ function displayAllBooks() {
 
         let toggleCell = document.createElement('td');
         let toggleButton = document.createElement('button');
-        toggleButton.textContent = "Read?"
+        toggleButton.textContent = 'Read?'
         toggleButton.addEventListener('click', function() {
             book.toggleRead();
         })
@@ -74,5 +74,34 @@ function displayAllBooks() {
         booksTable.appendChild(newRow);
     });
 }
+
+const addNewButton = document.getElementById('addNewButton');
+const cancelButton = document.getElementById('cancel');
+const submitButton = document.getElementById('submit');
+const form = document.getElementById('addNewForm');
+const dialog = document.getElementById('addNew');
+
+function addNewBook() {
+    let formData = new FormData(form);
+    let book = Object.fromEntries(formData);
+
+    addBookToLibrary(book.title, book.author, book.pages, book.read === 'on')
+
+    form.reset();
+    displayAllBooks();    
+}
+
+addNewButton.addEventListener('click', function() {
+    dialog.showModal();
+});
+
+cancelButton.addEventListener('click', function() {
+    dialog.close('no book added');
+});
+
+form.addEventListener('submit', function() {
+    addNewBook();
+});
+
 
 displayAllBooks();
