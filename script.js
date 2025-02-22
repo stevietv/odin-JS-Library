@@ -26,9 +26,6 @@ Book.prototype.toggleRead = function() {
     displayAllBooks();
 }
 
-addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', 266, false);
-addBookToLibrary('Tales of the City', 'Armistead Maupin', 198, true);
-
 function displayAllBooks() {
     const booksTable = document.querySelector('.books tbody');
 
@@ -75,6 +72,13 @@ function displayAllBooks() {
     });
 }
 
+
+addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', 266, false);
+addBookToLibrary('Tales of the City', 'Armistead Maupin', 198, true);
+displayAllBooks();
+
+// Dialog Form Functions
+
 const addNewButton = document.getElementById('addNewButton');
 const cancelButton = document.getElementById('cancel');
 const submitButton = document.getElementById('submit');
@@ -102,6 +106,3 @@ cancelButton.addEventListener('click', function() {
 form.addEventListener('submit', function() {
     addNewBook();
 });
-
-
-displayAllBooks();

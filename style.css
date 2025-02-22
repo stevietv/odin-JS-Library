@@ -10,7 +10,7 @@ table {
 }
 
 th {
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 td,
@@ -43,6 +43,7 @@ caption {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding: 0px 20px;
 }
 
 .content .right {
